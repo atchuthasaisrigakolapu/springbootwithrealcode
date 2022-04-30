@@ -14,6 +14,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.springBootWithRealcode.constant.Constants.*;
 
@@ -52,7 +53,7 @@ public class PTPEligibilityController {
                 .operations(operations)
                 .includeInfoList(includeInfoList)
                 .excludeInfoList(excludeInfoList)
-                .enableCache((enableCache != null && enableCache.name() != null)?enableCache.name():"Y" )
+                .enableCache((enableCache != null && !Objects.isNull(enableCache.name()))?enableCache.name():"Y" )
                 .brokenPtpValidation((brokenPtpValidation != null && brokenPtpValidation.name() != null)?brokenPtpValidation.name():"N")
                 .build();
 

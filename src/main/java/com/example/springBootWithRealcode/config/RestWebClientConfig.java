@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Configuration
-public class RestClientConfig {
+public class RestWebClientConfig {
 
     private final String baseUrl;
     private final Integer connectTimeout;
@@ -35,7 +35,7 @@ public class RestClientConfig {
     private final PTPWebClientConfig ptpWebClientConfig;
     private final WebClientModel webClientModel;
 
-    public RestClientConfig(PTPWebClientConfig ptpWebClientConfig, WebClientModel webClientModel) {
+    public RestWebClientConfig(PTPWebClientConfig ptpWebClientConfig, WebClientModel webClientModel) {
         this.ptpWebClientConfig = ptpWebClientConfig;
         this.webClientModel = webClientModel;
         this.baseUrl = webClientModel.getCitselBaseUrl();
