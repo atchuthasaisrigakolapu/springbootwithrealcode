@@ -20,6 +20,7 @@ public class AccounInfoResponse {
     String banSuspLevel;
     String banSuspReason;
     String defaultSubMarket;
+    String colDelingStatus;
     String statusActCode;
     String StatusActRsnCode;
     List<Integer> subscriberOpen;
