@@ -41,6 +41,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.vladmihalcea</groupId>-->
+<!--			<artifactId>hibernate-types-43</artifactId>-->
+<!--		</dependency>-->
+		<!-- Thanks for using https://jar-download.com -->
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

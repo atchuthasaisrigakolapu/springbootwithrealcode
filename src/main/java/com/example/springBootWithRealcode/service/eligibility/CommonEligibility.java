@@ -1,9 +1,6 @@
 package com.example.springBootWithRealcode.service.eligibility;
 
-import com.example.springBootWithRealcode.model.EligibilityConstraint;
-import com.example.springBootWithRealcode.model.PTPEligibilityResponse;
-import com.example.springBootWithRealcode.model.PTPOperationEnum;
-import com.example.springBootWithRealcode.model.PTPOperatonsEligibility;
+import com.example.springBootWithRealcode.model.*;
 import com.example.springBootWithRealcode.service.eligibility.cancel.PTPStatusNotPendingOrBroken;
 import com.example.springBootWithRealcode.service.eligibility.create.HighRiskCustomer;
 import com.example.springBootWithRealcode.service.eligibility.create.IPPIndicatorY;
@@ -16,6 +13,7 @@ import com.example.springBootWithRealcode.service.eligibility.update.PTPStatusNo
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
 import java.util.*;
 
@@ -42,7 +40,17 @@ public class CommonEligibility {
         if (eligibilityContext.getEligibilityRequest().getOperations().contains(PTPOperationEnum.EXTEND)) {
             eligibilityList.add(extendPTPEligibility(eligibilityContext,eligibilityList));
         }
-        return null;
+        return PTPEligibilityResponse.builder()
+                .refId(UUID.randomUUID().toString())
+                .ban(eligibilityContext.getEligibilityRequest().getBan())
+                .ptpOperatonsEligibility(eligibilityList)
+                .csPtpSvcResponse(eligibilityContext.getCsPtpSvcResponse())
+                .accounInfoResponse(ObjectUtils.isEmpty(eligibilityContext.getAccounInfoResponse())?null
+                        :objectMapper.convertValue(eligibilityContext.getAccounInfoResponse(), AccounInfoResponse.class))
+                .creditInfo(eligibilityContext.getCreditResultResponse())
+                .collectionInfoResponse(eligibilityContext.getCollectionInfoResponse())
+                .recommededPaymentsList(eligibilityContext.getRecommededPayments())
+                .build();
     }
 
     private PTPOperatonsEligibility createPTPEligibility(EligibilityContext eligibilityContext) {
