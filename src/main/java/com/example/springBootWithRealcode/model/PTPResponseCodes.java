@@ -22,7 +22,11 @@ public enum PTPResponseCodes {
     PTP_ELIGIBILITY_506("Extended wonot be performed while restoring account"),
     PTP_ELIGIBILITY_507("Set path is ineligible"),
     PTP_ELIGIBILITY_601("Create and Update PTP operation is not eligible "),
-    PTP_ELIGIBILITY_602("Restore and Extend ineligible for CLM customer");
+    PTP_ELIGIBILITY_602("Restore and Extend ineligible for CLM customer"),
+    PTP_VALIDATION_101("Automatic Restore/Extend operation happens for PTP category with A/B Suspended Data/Suspended  Ban .Manual operations are ineligibile"),
+    PTP_VALIDATION_102("Automatic Extend operation happens for PTP category A/B with Delinquent Ban .Manual operations are ineligibile"),
+    PTP_VALIDATION_201("Existing installement details can be updated if it is pending status");
+
 
     private final String value;
 
