@@ -8,6 +8,7 @@ public class SpringBootWithRealcodeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootWithRealcodeApplication.class, args);
+		System.out.print("testing purpose committed");
 	}
 
 }
